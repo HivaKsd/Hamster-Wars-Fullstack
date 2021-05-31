@@ -1,0 +1,10 @@
+.explanation {
+    padding: 50px;
+    text-align: center;
+    width: 50%;
+    display: block;
+  }
+  .explanation h1 {
+      color: white;
+      font-size: 3em;
+  }
