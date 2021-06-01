@@ -1,4 +1,4 @@
-.border {
+.gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -11,4 +11,10 @@
   border: 1px solid black;
   text-align: center;
   font-size: 30px;
+}
+
+.galleryItem {
+  border: 1px solid blue;
+  padding: 1em;
+  margin: 0.3em;
 }

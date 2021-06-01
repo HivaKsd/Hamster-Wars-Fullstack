@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useMountedRef } from '../../hooks/useMountedRef'
 import './Gallery.css'
 import HamsterForm from '../hamsterForm/HamsterForm'
+import HamsterCard from './HamsterCard'
 
 
 const Gallery = () => {
@@ -28,22 +29,17 @@ const Gallery = () => {
   }
 
   function checkHamsterInfo(hamster) {
-    console.console.log(hamster);
+    console.log(hamster);
   }
 
   return (
-    <section className="border">
+    <section className="gallery">
       <div className="container">
           {hamsters
             ? hamsters.map(hamster => (
-                <div key={hamster.id} className='galleryItem' onClick={() => checkHamsterInfo(hamster)}>
 
-                  <p>{hamster.name}</p>
+                <div> <HamsterCard /> } </div>
 
-                  <div className='galleryItemImg' style={{backgroundImage: `url(img/${hamster.imgName})` }}></div> //src={` ../public/img/${hamster.imgName} `}
-
-                  <button onClick={() => removeHamster(hamster.id)}>Remove</button>
-                </div>
             ))
             : 'Hämtar hamsters fråm API...'
           }

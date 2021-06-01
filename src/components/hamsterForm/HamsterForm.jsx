@@ -1,26 +1,41 @@
 import { useState } from 'react'
 
 const HamsterForm = () => {
-  const [inputName, setInputName] = useState('default')
-  const [inputAge, setInputAge] = useState(0)
-  const [inputFavFood, setInputFavFood] = useState('default')
-  const [inputLoves, setInputLoves] = useState('default')
-  const [inputImgName, setInputImgName] = useState('default')
+  const [inputName, setInputName] = useState('')
+  const [inputAge, setInputAge] = useState('')
+  const [inputFavFood, setInputFavFood] = useState('')
+  const [inputLoves, setInputLoves] = useState('')
+  const [inputImgName, setInputImgName] = useState('')
   const [wins] = useState(0)
   const [defeats] = useState(0)
   const [games, setGames] = useState(0)
 
-async function postHamster() {
+  let nameIsValid: boolean = true
+	let nameErrorMessage: string = ''
+	if( inputName === '' ) {
+		nameIsValid = false
 
-  if (inputName.length === 0) {
-    console.console.log('You need to enter a name for every hamster!');
-    return
-  }
-  if (inputAge.length === 0) {
-    console.console.log('You need to enter the age for every hamster!');
-    return
-  }
-  if (inputFavFood.length === 0) {
+		nameErrorMessage = "Please enter the hamster's name!"
+	}
+	let nameClass = (nameIsValid ? 'valid' : 'error')
+
+
+
+  let formIsInvalid = !nameIsValid
+
+
+
+  async function postHamster() {
+
+    if (inputName.length === 0) {
+        console.console.log('You need to enter a name for every hamster!');
+        return
+    }
+    if (inputAge.length === 0) {
+        console.console.log('You need to enter the age for every hamster!');
+        return
+    }
+    if (inputFavFood.length === 0) {
     console.console.log('You need to enter a favorite food for every hamster!');
     return
   }
@@ -56,7 +71,7 @@ await fetch(`/hamsters`, {
 })
 }
 return (
-  <section>
+  <section className="hamsterForm">
   <div>
     <lable>
         Name:
@@ -65,7 +80,9 @@ return (
             setInputName(event.target.value.toUpperCase())
           }}
           value={inputName}
+          className={nameClass}
         />
+        <div className="message"> {nameErrorMessage} </div>
     </lable>
   </div>
   <div>
@@ -114,7 +131,7 @@ return (
   </div>
 
 
-  <button onClick={postHamster}> Post Hamster </button>
+  <button onClick={postHamster} disabled={formIsInvalid}> Post Hamster </button>
   </section>
 )
 }

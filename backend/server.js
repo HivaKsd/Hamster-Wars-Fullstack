@@ -6,6 +6,7 @@ const hamsters = require(path.join(__dirname, 'routes/hamsters.js'))
 
 const PORT = process.env.PORT || 1338
 const buildFolder = path.join(__dirname, '../build')
+const imageFolder = path.join(__dirname, './img')
 
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`, req.params);
@@ -15,6 +16,7 @@ app.use((req, res, next) => {
 app.use(express.json())
 app.use(cors())
 app.use(express.static(buildFolder))
+app.use('/img', express.static(imageFolder))
 
 //Routes
 app.use('/hamsters', hamsters)
