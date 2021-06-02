@@ -1,15 +1,13 @@
+import './HamsterCard.css'
 
-
-
-function HamsterCard() {
+function HamsterCard(props) {
   return (
-    <div key={hamster.id} className='galleryItem' onClick={() => checkHamsterInfo(hamster)}>
+    <div key={props.hamster.id} className='hamsterCard'>
 
-      <p>{hamster.name}</p>
+      <p>{props.hamster.name}</p>
 
-      <div className='galleryItemImg' style={{backgroundImage: `url(../public/img/${hamster.imgName})` }}></div>
+      <div className='hamsterCardImg' style={{backgroundImage: `url(img/${props.hamster.imgName})` }}></div>
 
-      <button onClick={() => removeHamster(hamster.id)}>Remove</button>
     </div>
   );
 }

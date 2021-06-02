@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 import { useMountedRef } from '../../hooks/useMountedRef'
 import './Gallery.css'
 import HamsterForm from '../hamsterForm/HamsterForm'
 import HamsterCard from './HamsterCard'
+import HamsterInfo from '../hamsterInfo/HamsterInfo'
 
 
 const Gallery = () => {
   const [hamsters, setHamsters] = useState(null)
+  const [selectedHamster, setSelectedHamster] = useState(null)
   const isMounted = useMountedRef()
 
   useEffect(() => {
@@ -28,24 +30,41 @@ const Gallery = () => {
     setHamsters(await getHamsters())
   }
 
-  function checkHamsterInfo(hamster) {
-    console.log(hamster);
+  function openHamsterInfo(hamster) {
+    setSelectedHamster(hamster)
+  }
+
+  function closeHamsterInfo(hamster) {
+    setSelectedHamster(null)
   }
 
   return (
-    <section className="gallery">
-      <div className="container">
+    <div>
+      {selectedHamster ?
+        <div>
+          <div className='darkBackground' onClick={() => closeHamsterInfo()}></div>
+
+          <HamsterInfo hamster={selectedHamster}/>
+
+        </div>
+      : ''
+      }
+
+      <section className="gallery">
           {hamsters
             ? hamsters.map(hamster => (
 
-                <div> <HamsterCard /> } </div>
+                <div key={hamster.id} className='galleryItem' onClick={() => openHamsterInfo(hamster)}>
+                  <HamsterCard hamster={hamster} />
+                  <button onClick={(e) => {e.stopPropagation(); removeHamster(hamster.id)} }>Remove</button>
+                </div>
 
             ))
             : 'Hämtar hamsters fråm API...'
           }
-        </div>
+        </section>
         <HamsterForm />
-      </section>
+    </div>
   )
 }
 

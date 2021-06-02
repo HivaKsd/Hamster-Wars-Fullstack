@@ -1,0 +1,21 @@
+.hamsterCard {
+  border-radius: 5px;
+  grid-area: auto;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hamsterCard p {
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+.hamsterCardImg {
+  margin: 0.5em;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  height: 5em;
+  width: calc(100% - 1em);
+}

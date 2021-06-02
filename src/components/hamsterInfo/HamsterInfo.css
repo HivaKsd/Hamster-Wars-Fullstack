@@ -1,0 +1,25 @@
+.infoBox {
+  top: 5rem;
+  position: fixed;
+  max-width: 30rem;
+  box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.5);
+  background-color: #8AD2C0;
+  border-radius: 5px;
+}
+
+.infoBox div {
+  text-align: center;
+}
+
+.infoBox div p {
+  margin: 0.3rem;
+}
+
+.infoBoxImg {
+  margin: 0.5em;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  height: 20rem;
+  width: 25rem;
+}

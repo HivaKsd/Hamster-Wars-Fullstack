@@ -1,17 +1,19 @@
-.gallery {
+.battle {
   display: grid;
   justify-items: stretch;
-  grid-template-columns: repeat(4, calc(25% - (1.25em / 4)));
+  grid-template-columns: repeat(3, calc(33% - (1.25em / 3)));
   grid-template-rows: auto;
   grid-column-gap: 0.5em;
+  grid-column-gap: 0.5em;
   column-gap: 0.5em;
+  grid-row-gap: 0.5em;
   grid-row-gap: 0.5em;
   row-gap: 0.5em;
   margin: 0.5em 0;
   width: 80%;
 }
 
-.galleryItem {
+.battleParticipant {
   background-color: rgb(127, 188, 182);
   border-radius: 5px;
   grid-area: auto;
@@ -22,11 +24,6 @@
   transition: 0.3s;
 }
 
-.galleryItem:hover {
+.battleParticipant:hover {
   background-color: rgb(147, 194, 194);
-}
-
-.darkBackground {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
 }

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Switch, Route, NavLink } from 'react-rou
 import Start from './components/start/Start';
 import Battle from './components/battle/Battle';
 import Gallery from './components/gallery/Gallery';
+import HamsterInfo from './components/hamsterInfo/HamsterInfo'
 import './App.css';
 
 function App() {
@@ -18,9 +19,10 @@ function App() {
       </header>
       <main>
       <Switch>
-          <Route path="/battle"> <Battle /> </Route>
-          <Route path="/gallery"> <Gallery /> </Route>
-          <Route path="/"> <Start /> </Route>
+          <Route path="/gallery/:id"> {<HamsterInfo />} </Route>
+          <Route path="/battle"> {<Battle />} </Route>
+          <Route path="/gallery"> {<Gallery />} </Route>
+          <Route path="/"> {<Start />} </Route>
       </Switch>
       </main>
     </div>
