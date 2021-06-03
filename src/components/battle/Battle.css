@@ -1,20 +1,24 @@
 .battle {
   display: grid;
   justify-items: stretch;
-  grid-template-columns: repeat(3, calc(33% - (1.25em / 3)));
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
-  grid-column-gap: 0.5em;
   grid-column-gap: 0.5em;
   column-gap: 0.5em;
   grid-row-gap: 0.5em;
-  grid-row-gap: 0.5em;
   row-gap: 0.5em;
-  margin: 0.5em 0;
+  margin: 0.5em auto;
   width: 80%;
+  align-items: center;
+}
+
+.battle p {
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .battleParticipant {
-  background-color: rgb(127, 188, 182);
+  background-color:#88b588;
   border-radius: 5px;
   grid-area: auto;
   padding: 0.5em 0;
@@ -25,5 +29,5 @@
 }
 
 .battleParticipant:hover {
-  background-color: rgb(147, 194, 194);
+  background-color: #77aa77;
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useMountedRef } from '../../hooks/useMountedRef'
-import HamsterCard from '../gallery/HamsterCard'
+import HamsterCardBattle from './HamsterCardBattle'
+import HamsterInfo from '../hamsterInfo/HamsterInfo'
 import './Battle.css'
 
 
@@ -48,24 +49,39 @@ const Battle = () => {
     }
   }
 
+
   return (
+    <div>
+
+
+    {hamsterWinner ?
+      <div>
+
+        <HamsterInfo hamster={hamsterWinner}/>
+
+      </div>
+    : ''
+    }
+    
+
+
     <section className='battle'>
       {hamsterWinner ?
         <div className='battleParticipant' onClick={() => declareWinner(hamsterLoser.id, hamsterWinner.id)}>
-            <HamsterCard hamster={hamsterWinner} />
+            <HamsterCardBattle hamster={hamsterWinner} />
         </div>
         : defaultString}
 
-        <div>VS</div>
+        <p>VS</p>
 
         {hamsterLoser ?
           <div className='battleParticipant' onClick={() => declareWinner(hamsterLoser.id, hamsterWinner.id)}>
-              <HamsterCard hamster={hamsterLoser} />
+              <HamsterCardBattle hamster={hamsterLoser} />
           </div>
           : defaultString}
-          
-    </section>
 
+    </section>
+    </div>
   )
 }
 

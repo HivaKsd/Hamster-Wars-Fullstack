@@ -1,3 +1,14 @@
+
+I started with designing pages and writing html and css for them.
+Then I built a frontend project without typescript, put links to start,gallery,
+and battle pages in the App.js file using Link, NavLink, and Switch.
+Then I created components for different parts of the application.
+Then I brought the backend part an connect it to frontend parts by
+using fetch.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

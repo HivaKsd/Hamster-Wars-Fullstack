@@ -50,7 +50,7 @@ const Gallery = () => {
       : ''
       }
 
-      <section className="gallery">
+      <div className="gallery">
           {hamsters
             ? hamsters.map(hamster => (
 
@@ -62,8 +62,10 @@ const Gallery = () => {
             ))
             : 'Hämtar hamsters fråm API...'
           }
-        </section>
+        </div>
+        <div>
         <HamsterForm />
+        </div>
     </div>
   )
 }

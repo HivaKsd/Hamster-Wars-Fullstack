@@ -1,10 +1,19 @@
 .explanation {
-    padding: 50px;
     text-align: center;
     width: 50%;
     display: block;
+    margin: 0px auto;
+    padding: 0px 55px;
+    min-height: 950px;
+    background-color: white;
+    color: #77aa77;
   }
+
   .explanation h1 {
-      color: white;
+      color: #77aa77;
       font-size: 3em;
+  }
+
+  .explanation p {
+      font-size: 1.5em;
   }
