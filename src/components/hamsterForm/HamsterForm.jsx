@@ -84,8 +84,8 @@ return (
   <section className="hamsterForm">
   <legend>Add New Hamster</legend>
   <div>
-    <lable>
-        <p>Name:*</p>
+    <label>
+        <p>Name (required):</p>
         <input type="text"
                onBlur={() => setNameTouched(true)}
                onChange={event => {
@@ -96,11 +96,11 @@ return (
           className={nameClass}
         />
         {nameTouched ? <div className="message"> {nameErrorMessage} </div> : null}
-    </lable>
+    </label>
   </div>
   <div>
-    <lable>
-        <p>Age:*</p>
+    <label>
+        <p>Age (required):</p>
         <input type="text"
                onBlur={() => setAgeTouched(true)}
                onChange={event => {
@@ -111,10 +111,10 @@ return (
           className={ageClass}
         />
         {ageTouched ? <div className="message"> {ageErrorMessage} </div> : null}
-    </lable>
+    </label>
   </div>
   <div>
-    <lable>
+    <label>
         <p>Favorite Food:</p>
         <input onChange={event => {
             console.log('controlled change', event.target.value);
@@ -122,10 +122,10 @@ return (
           }}
           value={inputFavFood}
         />
-    </lable>
+    </label>
   </div>
   <div>
-    <lable>
+    <label>
         <p>Loves:</p>
         <input onChange={event => {
             console.log('controlled change', event.target.value);
@@ -133,11 +133,11 @@ return (
           }}
           value={inputLoves}
         />
-    </lable>
+    </label>
   </div>
   <div>
-    <lable>
-        <p>Image Name:*</p>
+    <label>
+        <p>Image Name (required):</p>
         <input type="text"
                onBlur={() => setImgNameTouched(true)}
                onChange={event => {
@@ -148,7 +148,7 @@ return (
           className={imgNameClass}
         />
         {imgNameTouched ? <div className="message"> {imgNameErrorMessage} </div> : null}
-    </lable>
+    </label>
   </div>
 
   <p></p>

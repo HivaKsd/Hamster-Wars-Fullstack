@@ -39,7 +39,7 @@
 }
 
 .hamsterForm p {
-  width: 150px;
+  width: 20%;
   font-weight: bold;
   font-size: 16px;
   text-shadow: 1px 1px 1px #fff;
@@ -60,6 +60,7 @@
 .hamsterForm .message {
 	position: absolute;
 	color: var(--error-color);
+	display: inline-block;
 }
 
 .hamsterForm .error {

@@ -96,61 +96,50 @@ router.put('/:id', async (req, res) => {
 
 // PUT /hamsters/:id/win
 router.put('/:id/win', async (req, res) => {
-    try {
+	const object = req.body
+	const id = req.params.id
 
-        console.log('LEGIT QUERRY - PUT /hamsters/:id/win');
+  const docRef = await db.collection('hamsters').doc(id).get()
+	if( !docRef.exists ) {
+		res.status(404).send('This hamster does not exist')
+		return
+	}
+	/*else if (Object.keys(object).length === 0) {
+		res.status(400).send('Bad Request!')
+		return
+	}*/
 
-        const id = req.params.id
-        const docRef = db.collection('hamsters').doc(id)
-        const doc = await docRef.get();
+	let hamster = docRef.data();
+	// Hamster wins
+	hamster.wins ++;
+	hamster.games ++;
 
-        // Validerar id och kontrollerar att hamstern finns
-        if (validation.id(id, doc, res) === false) { return }
-
-        let hamster = doc.data();
-
-        // Hamstern vinner
-        hamster.wins ++;
-        hamster.games ++;
-
-        // Allt gick bra. Hamstern förlorar.
-        await docRef.set(hamster, { merge: true })
-        res.sendStatus(200)
-
-    } catch (error) {
-        console.log(error);
-        res.sendStatus(500)
-    }
-
+	await db.collection('hamsters').doc(id).set(hamster, { merge: true })
+	res.sendStatus(200)
 })
 
 // PUT /hamsters/:id/lose
 router.put('/:id/lose', async (req, res) => {
-    try {
+	const object = req.body
+	const id = req.params.id
 
-        console.log('LEGIT QUERRY - PUT /hamsters/:id/lose');
+  const docRef = await db.collection('hamsters').doc(id).get()
+	if( !docRef.exists ) {
+		res.status(404).send('This hamster does not exist')
+		return
+	}
+	/*else if (Object.keys(object).length === 0) {
+		res.status(400).send('Bad Request!')
+		return
+	}*/
 
-        const id = req.params.id
-        const docRef = db.collection('hamsters').doc(id)
-        const doc = await docRef.get();
+	let hamster = docRef.data();
+	// Hamster loses
+	hamster.defeats ++;
+	hamster.games ++;
 
-        // Validerar id och kontrollerar att hamstern finns
-        if ( validation.id(id, doc, res) === false ) { return };
-
-        let hamster = doc.data();
-
-        // Hamstern förlorar
-        hamster.defeats ++;
-        hamster.games ++;
-
-        // Allt gick bra
-        await docRef.set( hamster, { merge: true } )
-        res.sendStatus(200)
-
-    } catch (error) {
-        res.sendStatus(500)
-        console.log(error);
-    }
+	await db.collection('hamsters').doc(id).set(hamster, { merge: true })
+	res.sendStatus(200)
 })
 
 
